@@ -12,6 +12,8 @@ import AVFoundation
 class ViewController: UIViewController {
     
     @IBOutlet weak var counterLabel: UILabel!
+    @IBOutlet weak var clearButon: UIButton!
+    
     
     var buttonSound: AVAudioPlayer!
     var runningNumber = ""
@@ -28,7 +30,6 @@ class ViewController: UIViewController {
         case Empty = "Empty"
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,13 +45,14 @@ class ViewController: UIViewController {
         }
         
         counterLabel.text = "0"
-        
+        clearButon.isHidden = true
     }
     
     @IBAction func numberPressed(sender: UIButton) {
         playSound()
         runningNumber += "\(sender.tag)"
         counterLabel.text = runningNumber
+        clearButon.isHidden = false
     }
     
     @IBAction func divideButtonPressed(sender: UIButton) {
@@ -75,6 +77,23 @@ class ViewController: UIViewController {
     @IBAction func equalsButtonPressed(sender: UIButton) {
         processOperation(operation: currentOperation)
     }
+    
+    @IBAction func clearButtonPressed(sender: UIButton) {
+        runningNumber += "0"
+        counterLabel.text = runningNumber
+        
+        if counterLabel.text == "0" {
+            clearButon.isHidden = true
+        
+        }; if runningNumber != "0" {
+            processOperation(operation: .Empty)
+            counterLabel.text = "0"
+            clearButon.isHidden = true
+
+        }
+        
+    }
+    
     
     func playSound() {
         if buttonSound.isPlaying {
@@ -117,8 +136,6 @@ class ViewController: UIViewController {
             
         }
     }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
