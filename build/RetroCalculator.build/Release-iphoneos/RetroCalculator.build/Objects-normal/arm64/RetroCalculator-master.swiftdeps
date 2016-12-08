@@ -1,6 +1,0 @@
-version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
-options: "257c007d644dd50985f0c7cad9db31fc"
-build_time: [533081861, 660079000]
-inputs:
-  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/RetroCalculator/RetroCalculator/ViewController.swift": [9223372036854775807, 0]
-  "/Users/markrabins/Documents/Personal/DevStuff/iOS/Swift/Devslopes-ios10/Core iOS/RetroCalculator/RetroCalculator/AppDelegate.swift": [9223372036854775807, 0]
